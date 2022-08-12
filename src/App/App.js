@@ -65,7 +65,8 @@ class App extends Component {
           </NavLink>
         </nav>
         <main>
-          {this.state.errorMessage && <h2>{this.state.errorMessage}</h2>}
+          {this.state.movies.length === 0 && <h2 className='loading-message'>🍿Page Loading...🍿</h2>}
+          {this.state.errorMessage && <h2 className='error-message'>{this.state.errorMessage}</h2>}
           <Switch>
             <Route
               exact path="/" render={() => <MoviesContainer movieData={this.state.movies} updateSelectedMovieId={this.updateSelectedMovieId} selectedMovieId={this.state.selectedMovieId} trailer={this.state.trailer} />}

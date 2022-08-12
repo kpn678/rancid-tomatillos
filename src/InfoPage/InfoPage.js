@@ -30,7 +30,7 @@ class InfoPage extends Component {
   render() {
     return (
       <>
-        {this.state.errorMessage ? <h2>{this.state.errorMessage}</h2> :
+        {this.state.errorMessage ? <h2 className='error-message'>{this.state.errorMessage}</h2> :
           <article className='movie-info-container' style={{backgroundImage: `url(${this.state.selectedMovie.backdrop_path})`}}>
             <div className='info-mask'>
               <div className="rotating-box">

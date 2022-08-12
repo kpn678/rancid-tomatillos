@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import InfoPage from '../InfoPage/InfoPage';
@@ -24,7 +24,7 @@ class App extends Component {
     })
     .catch(error => {
       console.log(error);
-      this.setState({errorMessage: `${this.showError(error)} ${error.message}`})
+      this.setState({errorMessage: error.message})
     })
   };
 
@@ -36,12 +36,6 @@ class App extends Component {
         selectedMovieId: id
       })
     })
-  };
-
-  showError = (response) => {
-    if (!response.ok) {
-     return ("Something went wrong, please try again!");
-    };
   };
   
   render() {
@@ -72,14 +66,21 @@ class App extends Component {
         </nav>
         <main>
           {this.state.errorMessage && <h2>{this.state.errorMessage}</h2>}
-          <Route
-            exact path="/" render={() => <MoviesContainer movieData={this.state.movies} updateSelectedMovieId={this.updateSelectedMovieId} selectedMovieId={this.state.selectedMovieId} trailer={this.state.trailer}/>}
-          />
-          <Route
-            exact path='/:id' render={({ match }) => {
-              return <InfoPage selectedMovieId={match.params.id} showError={this.showError}/>
-            }}
-          /> 
+          <Switch>
+            <Route
+              exact path="/" render={() => <MoviesContainer movieData={this.state.movies} updateSelectedMovieId={this.updateSelectedMovieId} selectedMovieId={this.state.selectedMovieId} trailer={this.state.trailer} />}
+            />
+            <Route
+              exact path='/:id' render={({ match }) => {
+                return <InfoPage selectedMovieId={match.params.id} showError={this.showError} />
+              }}
+            /> 
+            <Route 
+              render={() => 
+                <Redirect to={{pathname: "/"}} />
+              } 
+            />
+          </Switch>
         </main>
       </>
     );

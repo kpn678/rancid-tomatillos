@@ -23,7 +23,7 @@ class InfoPage extends Component {
     })
     .catch(error => {
       console.log(error);
-      this.setState({errorMessage: `${this.props.showError(error)} ${error.message}`})
+      this.setState({errorMessage: error.message})
     })
   };
 

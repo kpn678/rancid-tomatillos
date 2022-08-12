@@ -22,9 +22,9 @@ const MoviesContainer = ({ movieData, updateSelectedMovieId, trailer, selectedMo
     });
 
     return (
-        <div className= 'movies-container'>
+        <section className= 'movies-container'>
             {movieCards}
-        </div> 
+        </section> 
     );
 };
 

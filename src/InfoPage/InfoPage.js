@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './InfoPage.css';
-import { getSelectedMovie } from './apiCalls';
+import { getSelectedMovie } from '../apiCalls';
 
 class InfoPage extends Component {
   constructor(props) {

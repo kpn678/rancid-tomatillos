@@ -1,7 +1,7 @@
 import React from 'react';
-import './MoviesContainer.css';
-import MovieCard from './MovieCard';
 import { Link } from 'react-router-dom';
+import './MoviesContainer.css';
+import MovieCard from '../MovieCard/MovieCard';
 
 const MoviesContainer = ({ movieData, updateSelectedMovieId, trailer, selectedMovieId }) => {
     if (!trailer) {

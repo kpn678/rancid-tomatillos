@@ -6,11 +6,7 @@ describe('Visit info page', () => {
       statusCode: 200
     })
   });
-
-  it('Should confirm that true is equal to true', () => {
-    expect(true).to.equal(true);
-  });
-
+  
   it('Should display a header of RANCID TOMATILLOS', ()=> {
       cy.get('.text-container').contains('rancid tomatillos');
   });

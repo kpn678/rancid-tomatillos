@@ -1,32 +1,25 @@
 main {
-  background-color: rgb(189, 184, 176);
+  height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
 }
 
 nav {
+  height: 10vh;
+  padding-top: 1vh;
+  padding-bottom: 3vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   background-color: #000000;
-  height: 10vh;
+  background: linear-gradient(to top, rgb(189, 184, 176), #000000 111%, rgb(149, 146, 146) 55%, #3d3b3b 190%, rgb(189, 184, 176) 25%);
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, cursive; 
   font-size: 5rem; 
-  overflow: hidden;
   transition: height 0.66s ease-out;
-  background: linear-gradient(to top, rgb(189, 184, 176), #000000 111%, rgb(149, 146, 146) 55%, #3d3b3b 190%, rgb(189, 184, 176) 25%);
-  padding-top: 1vh;
-  padding-bottom: 3vh;
 }
 
 .text-container {
   font-size: 5rem;
-}
-
-.text-container > span {
-  text-transform: uppercase;
-  animation: glow 9s ease-in-out infinite;
-  margin-top: 0;
 }
 
 @keyframes glow {
@@ -39,6 +32,12 @@ nav {
     color: black;
     text-shadow: none;
   }
+}
+
+.text-container > span {
+  text-transform: uppercase;
+  animation: glow 9s ease-in-out infinite;
+  margin-top: 0;
 }
 
 .text-container > span:nth-child(1) {
@@ -107,4 +106,9 @@ nav {
 
 .active {
   color: rgba(197, 187, 187, 0.916);
+}
+
+.error-message,
+.loading-message {
+  text-align: center;
 }

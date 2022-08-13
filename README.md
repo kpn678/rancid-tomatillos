@@ -15,18 +15,11 @@ The rubric and specs can be found [here](https://frontend.turing.edu/projects/mo
 [Click Here](https://best-rancid-tomatillos.herokuapp.com/)
 
 ## Set Up
-1. Fork this [repository](https://github.com/orlov-n/Tomatillos-Rancid), and clone it into your local machine.
+1. Fork this [repository](https://github.com/kpn678/rancid-tomatillos), and clone it into your local machine.
 2. Navigate into the repository.
-3. Run `npm install` from your command line, which will install the required React framework.
+3. Run `npm install` from your command line.
 4. Open another command line tab, and remain in the repository. Each time you use the application, run `npm start`, and copy the local host link, `http://localhost:3000/`, to your browser to view the application.
-5. To run testing, run `npm i -D cypress` to install Cypress as a dev dependency.
-6. Add 
-`{
-  "scripts": {
-    "cypress": "cypress open"
-  }
-}`
-to `package.json`, and then run `npm run cypress` to begin testing.
+5. To run testing, run `npm run cypress` to begin testing.
 
 ## Visual Walkthrough
 - User can view a list of movies on the home page
@@ -37,12 +30,11 @@ to `package.json`, and then run `npm run cypress` to begin testing.
 
 ## Technologies Implemented
 - Javascript/HTML (JSX)
+- CSS
 - React
 - React Router
-- Webpack
-- REST API
+- Fetch API
 - Cypress
-- CSS
 
 ## Future Directions
 - Create a search bar filter function so the user can look for a specific movie

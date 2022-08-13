@@ -1,14 +1,14 @@
 .movies-container {
-    display: flex;
-    justify-content: space-evenly;
     height: 100%;
-    flex-wrap: wrap;
     padding: 1vw;
     padding-top: 1vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 } 
 
 .movies-container::after {
+    margin-left: 17.5vw;
     content: "";
     flex: unset;
-    margin-left: 17.5vw;
 }

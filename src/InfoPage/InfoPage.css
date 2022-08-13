@@ -4,37 +4,37 @@
 }
 
 .movie-info-container {
+  height: 88vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   background-position: center;
-  overflow: hidden;
   background-size: cover;
-  height: 88vh;
 }
 
 .info-mask {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  overflow: hidden;
   opacity: 93%;
   display: flex;
   justify-content: center;
   background-position: center;
-  overflow: hidden;
   background-size: cover;
   background: linear-gradient(to bottom,  rgb(189, 184, 176), #2a2929 100%);
 }
 
 .rotating-box {
-  background-color: transparent;
-  width: 26vw;
   height: 88vh;
+  width: 26vw;
+  background-color: transparent;
   perspective: 1000px; 
 }
 
 .rotating-box-inner {
-  position: relative;
-  width: 26vw;
   height: 100%;
+  width: 26vw;
+  position: relative;
   text-align: center;
   transition: transform 1.3s;
   transform-style: preserve-3d;
@@ -47,17 +47,17 @@
 .rotating-box-front,
 .rotating-box-back {
   position: absolute;
-  width: 26vw;
   height: 90%;
+  width: 26vw;
   margin-top: 3vh;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .rotating-box-front {
+  width: 26vw;
   background-color: #000000;
   color: black;
-  width: 26vw;
   box-shadow: rgb(0, 0, 0) 6px 2px 30px 11px;
 }
 
@@ -67,14 +67,14 @@
 }
 
 .rotating-box-back {
+  width: 26vw;
+  padding: 3px;
   background-color: #000000;
   color: white;
   transform: rotateY(180deg);
-  width: 26vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 3px;
   background: linear-gradient(to right, rgb(155, 119, 21), rgb(86, 75, 35));
 }
 
@@ -96,6 +96,8 @@
 }
 
 .rotating-box-back:before, .rotating-box-back:after {
+  height: calc(100% + 1px);
+  width: calc(100% + 1px);
   content: '';
   position: absolute;
   top: -1px;
@@ -104,8 +106,6 @@
   background: linear-gradient(45deg, #eeebe4, #e0e0f1, #deeede,#f4ed8a, #f3ce6a, #f3e3d0, 
     #f4e8e8, #f3f4ec,#f4f4e9, #f3df8e);
   background-size: 400%;
-  width: calc(100% + 1px);
-  height: calc(100% + 1px);
   z-index: -1;
   animation: steam 26s linear infinite;
 }
@@ -115,6 +115,9 @@
 }
 
 .title {
+  margin: 2vh;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
   font-family: 'David Libre';
   font-size: 4vh;
   letter-spacing: 8px;
@@ -122,18 +125,15 @@
   text-align: center;
   font-variant: small-caps;
   font-style: italic;
-  margin: 2vh;
-  margin-bottom: 3vh;
-  margin-top: 3vh;
 }
 
 .tagline-wrapper {
-  color: white;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0;
-  padding: 0;
+  color: white;
 }
 
 .tagline {
@@ -153,11 +153,11 @@
 }
 
 .overview-wrapper {
-  color: white;
+  margin: 1vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 1vh;
+  color: white;
 }
 
 .overview {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { NavLink, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
-import MoviesContainer from './MoviesContainer';
-import InfoPage from './InfoPage';
-import { getMovies, getSelectedTrailer } from './apiCalls';
-import { NavLink, Route } from 'react-router-dom';
+import MoviesContainer from '../MoviesContainer/MoviesContainer';
+import InfoPage from '../InfoPage/InfoPage';
+import { getMovies, getSelectedTrailer } from '../apiCalls';
 
 class App extends Component {
   constructor() {
@@ -19,12 +19,12 @@ class App extends Component {
   componentDidMount = () => {
     getMovies()
     .then(data => {
-      const filteredMovies = data.movies.filter(movie => movie.backdrop_path !== "https://www.esm.rochester.edu/uploads/NoPhotoAvailable.jpg" && movie.backdrop_path !== '');
-      this.setState({movies: filteredMovies})
+      data.movies.sort((a, b) => a.title.localeCompare(b.title));
+      this.setState({movies: data.movies})
     })
     .catch(error => {
       console.log(error);
-      this.setState({errorMessage: `${this.showError(error)} ${error.message}`})
+      this.setState({errorMessage: error.message})
     })
   };
 
@@ -36,12 +36,6 @@ class App extends Component {
         selectedMovieId: id
       })
     })
-  };
-
-  showError = (response) => {
-    if (!response.ok) {
-     return ("Something went wrong, please try again!");
-    };
   };
   
   render() {
@@ -71,15 +65,23 @@ class App extends Component {
           </NavLink>
         </nav>
         <main>
-          {this.state.errorMessage && <h2>{this.state.errorMessage}</h2>}
-          <Route
-            exact path="/" render={() => <MoviesContainer movieData={this.state.movies} updateSelectedMovieId={this.updateSelectedMovieId} selectedMovieId={this.state.selectedMovieId} trailer={this.state.trailer}/>}
-          />
-          <Route
-            exact path='/:id' render={({ match }) => {
-              return <InfoPage selectedMovieId={match.params.id} showError={this.showError}/>
-            }}
-          /> 
+          {this.state.movies.length === 0 && <h2 className='loading-message'>🍿Page Loading...🍿</h2>}
+          {this.state.errorMessage && <h2 className='error-message'>{this.state.errorMessage}</h2>}
+          <Switch>
+            <Route
+              exact path="/" render={() => <MoviesContainer movieData={this.state.movies} updateSelectedMovieId={this.updateSelectedMovieId} selectedMovieId={this.state.selectedMovieId} trailer={this.state.trailer} />}
+            />
+            <Route
+              exact path='/:id' render={({ match }) => {
+                return <InfoPage selectedMovieId={match.params.id} showError={this.showError} />
+              }}
+            /> 
+            <Route 
+              render={() => 
+                <Redirect to={{pathname: "/"}} />
+              } 
+            />
+          </Switch>
         </main>
       </>
     );

@@ -19,8 +19,8 @@ class App extends Component {
   componentDidMount = () => {
     getMovies()
     .then(data => {
-      const filteredMovies = data.movies.filter(movie => movie.backdrop_path !== "https://www.esm.rochester.edu/uploads/NoPhotoAvailable.jpg" && movie.backdrop_path !== '');
-      this.setState({movies: filteredMovies})
+      data.movies.sort((a, b) => a.title.localeCompare(b.title));
+      this.setState({movies: data.movies})
     })
     .catch(error => {
       console.log(error);

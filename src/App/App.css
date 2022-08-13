@@ -1,8 +1,7 @@
 main {
-  background-color: rgb(189, 184, 176);
+  height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
 }
 
 nav {
@@ -23,12 +22,6 @@ nav {
   font-size: 5rem;
 }
 
-.text-container > span {
-  text-transform: uppercase;
-  animation: glow 9s ease-in-out infinite;
-  margin-top: 0;
-}
-
 @keyframes glow {
   0%, 100% {
     text-shadow: 5px 12px 11px #7b7878, 0 0 50px #bdb4a3, 0 0 100px #e4ddac;
@@ -39,6 +32,12 @@ nav {
     color: black;
     text-shadow: none;
   }
+}
+
+.text-container > span {
+  text-transform: uppercase;
+  animation: glow 9s ease-in-out infinite;
+  margin-top: 0;
 }
 
 .text-container > span:nth-child(1) {

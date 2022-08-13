@@ -12,7 +12,7 @@
 The rubric and specs can be found [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html).
 
 ## Deployed Link
-[Click Here](https://best-rancid-tomatillos.herokuapp.com/)
+[Click Here](https://quite-rancid-tomatillos.herokuapp.com/)
 
 ## Set Up
 1. Fork this [repository](https://github.com/kpn678/rancid-tomatillos), and clone it into your local machine.
